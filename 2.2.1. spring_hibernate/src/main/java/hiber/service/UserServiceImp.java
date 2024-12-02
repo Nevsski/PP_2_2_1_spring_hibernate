@@ -11,6 +11,12 @@ import java.util.List;
 @Service
 public class UserServiceImp implements UserService {
 
+
+
+   public UserServiceImp(UserDao userDao) {
+      this.userDao = userDao;
+   }
+
    @Autowired
    private UserDao userDao;
 
@@ -26,4 +32,8 @@ public class UserServiceImp implements UserService {
       return userDao.listUsers();
    }
 
+   @Override
+   public User getUserByCar(String model, int series) {
+      return userDao.getUserByCar(model, series);
+   }
 }
